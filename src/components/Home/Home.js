@@ -1,11 +1,15 @@
 import React, { Component } from "react";
-import { exportComponentAsPNG } from "react-component-export-image";
+import {
+  exportComponentAsPNG,
+  exportComponentAsPDF,
+} from "react-component-export-image";
 import "./styles.css";
 
 class Home extends Component {
   certificateWrapper = React.createRef();
   state = {
     Name: "",
+    Date: "",
   };
   render() {
     return (
@@ -21,9 +25,19 @@ class Home extends Component {
                 this.setState({ Name: e.target.value });
               }}
             />
+            <p>enter date</p>
+            <input
+              type="date"
+              placeholder="date"
+              value={this.state.Date}
+              onChange={(e) => {
+                this.setState({ Date: e.target.value });
+              }}
+            />
             <button
               onClick={(e) => {
                 e.preventDefault();
+                console.log(`console debug message ${this.certificateWrapper}`);
                 exportComponentAsPNG(this.certificateWrapper, {
                   html2CanvasOptions: { backgroundColor: null },
                 });
@@ -35,7 +49,8 @@ class Home extends Component {
 
           <div id="downloadWrapper" ref={this.certificateWrapper}>
             <div id="certificateWrapper">
-              <p>{this.state.Name}</p>
+              <h4>{this.state.Name}</h4>
+              <p>{this.state.Date}</p>
               <img
                 src="https://imgurupload.org/files/Certi-gen.png"
                 alt="Certificate"

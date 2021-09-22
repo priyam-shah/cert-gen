@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 .App {
-  font-family: "Hachi Maru Pop", cursive;
   display: flex;
   padding: 15px;
 }
@@ -25,7 +24,7 @@
   font-family: inherit;
   margin: 20px 0;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: grabbing;
 }
 .App #downloadWrapper {
   padding: 20px;
@@ -39,11 +38,18 @@
 .App #certificateWrapper img {
   display: block;
 }
-.App #certificateWrapper p {
-  font-family: "Staatliches", cursive;
+.App #certificateWrapper h4 {
   margin: 0;
   position: absolute;
   left: 470px;
   top: 370px;
   font-size: 20pt;
+}
+
+.App #certificateWrapper p {
+  margin: 0;
+  position: absolute;
+  left: 460px;
+  top: 560px;
+  font-size: 18pt;
 }
